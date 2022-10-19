@@ -38,24 +38,26 @@ func configInit() {
 		return
 	}
 
-	Env = Config.Section("").Key("mode").String()
+	// 读取系统变量的运行模式，优先采用系统变量的运行模式
+	sysEnv := os.Getenv("ginMode")
+	logs.Info("sysEnv", sysEnv)
+	if sysEnv != "" {
+		Env = sysEnv
+	} else {
+		Env = Config.Section("").Key("mode").String()
+	}
+
 	// 设置gin的运行模式
-	ginMode(Env)
+	ginMode()
 	logs.Info("env", Env)
 	logs.Info("port", Config.Section(Env).Key("port").String())
 	logs.Info("test", Config.Section("").Key("test").String())
 }
 
-func ginMode(env string) {
-	// 读取系统变量的运行模式，优先采用系统变量的运行模式
-	sysEnv := os.Getenv("ginMode")
-	logs.Info("sysEnv", sysEnv)
-	if sysEnv != "" {
-		env = sysEnv
-	}
-	if env == "test" {
+func ginMode() {
+	if Env == "test" {
 		gin.SetMode(gin.TestMode)
-	} else if env == "prod" {
+	} else if Env == "prod" {
 		gin.SetMode(gin.ReleaseMode)
 	} else {
 		gin.SetMode(gin.DebugMode)
