@@ -9,6 +9,7 @@ package utils
 
 import (
 	"bytes"
+	"gin/logs"
 	"os/exec"
 )
 
@@ -19,6 +20,7 @@ func ExecNoRes(command string) error {
 	cmd.Stdin = in
 	in.WriteString(command)
 	if err := cmd.Run(); err != nil {
+		logs.Error("ExecNoRes", command)
 		return err
 	}
 	return nil
