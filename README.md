@@ -1,0 +1,15 @@
+1. 运行模式配置
+    ```
+    优先使用环境变量
+   设置环境变量的方法：export ginMode=local
+   当环境变量不存在的时候，使用配置文件 config/config.ini 中的 mode 配置
+    ```
+2. 配置参数的读取
+    ```
+   读取通用配置参数：Config.Section("").Key("这里填写配置的key").String()
+   读取不同环境的配置参数：Config.Section(Env).Key("这里填写配置的key").String()
+   ```
+3. 运行方式
+   ```
+   air server
+   ```
