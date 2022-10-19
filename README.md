@@ -5,6 +5,12 @@
    当环境变量不存在的时候，使用配置文件 config/config.ini 中的 mode 配置
    
    首次运行，需将 local.ini.example 重命名成 local.ini
+   
+   支持四种运行环境配置
+   local：本地
+   dev：开发
+   test：测试
+   prod：线上
     ```
 2. 配置参数的读取
     ```
@@ -14,6 +20,7 @@
 3. 运行方式
    ```
    air server
+   可自动监听文件变化，重启服务
    ```
 4. swagger 访问路径
    ```
