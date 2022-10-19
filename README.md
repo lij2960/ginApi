@@ -13,3 +13,7 @@
    ```
    air server
    ```
+4. swagger 访问路径
+   ```
+   http://127.0.0.1:8080/swagger/index.html
+   ```
