@@ -17,12 +17,17 @@
    读取通用配置参数：Config.Section("").Key("这里填写配置的key").String()
    读取不同环境的配置参数：Config.Section(Env).Key("这里填写配置的key").String()
    ```
-3. 运行方式
+3. 运行依赖安装
+   ```
+   go install github.com/swaggo/swag/cmd/swag
+   go install github.com/cosmtrek/air
+   ```
+4. 运行方式
    ```
    air server
    可自动监听文件变化，重启服务
    ```
-4. swagger 访问路径
+5. swagger 访问路径
    ```
    http://127.0.0.1:8080/swagger/index.html
    ```
