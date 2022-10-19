@@ -24,7 +24,7 @@ type Default struct {
 // @Accept      json
 // @Produce     json
 // @Success     200 {string} Helloworld
-// @Router      /get [get]
+// @Router      / [get]
 func (d *Default) Get(c *gin.Context) {
 	logs.Info("Test", d.Test)
 	c.JSON(200, gin.H{
