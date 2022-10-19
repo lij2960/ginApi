@@ -3,6 +3,8 @@
     优先使用环境变量
    设置环境变量的方法：export ginMode=local
    当环境变量不存在的时候，使用配置文件 config/config.ini 中的 mode 配置
+   
+   首次运行，需将 local.ini.example 重命名成 local.ini
     ```
 2. 配置参数的读取
     ```
