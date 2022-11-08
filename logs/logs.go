@@ -14,18 +14,18 @@ import (
 	"strings"
 )
 
-func Info(f interface{}, v interface{}) {
+func Info(f interface{}, v ...interface{}) {
 	// 判断如果不是线上版本，则打印info信息
 	if gin.Mode() != gin.ReleaseMode {
 		log.Print("[I] ", formatLog(f, v))
 	}
 }
 
-func Alert(f interface{}, v interface{}) {
+func Alert(f interface{}, v ...interface{}) {
 	log.Print("[A] ", formatLog(f, v))
 }
 
-func Error(f interface{}, v interface{}) {
+func Error(f interface{}, v ...interface{}) {
 	log.Print("\u001b[31m [E] \u001b[0m", formatLog(f, v))
 }
 
